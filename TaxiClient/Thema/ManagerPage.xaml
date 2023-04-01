@@ -1,0 +1,71 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="WindowMgr" TargetType="{x:Type Window}">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,0.7" StartPoint="0.5,0">
+                    <GradientStop Color="#FF33382B" Offset="1"/>
+                    <GradientStop Color="#FFECD600" Offset="0"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Button`s style-->
+    <Style x:Key="BtnMgPage" TargetType="{x:Type Button}">
+        <Setter Property="Foreground" Value="#FF33382B"/>
+        <Setter Property="Background" Value="#FFC3B100"/>
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Width" Value="200"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Margin" Value="5"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#FF33382B"/>
+                <Setter Property="Foreground" Value="#FFECD600" />
+                <Setter Property="FontWeight" Value="Bold" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="Gainsboro"/>
+                <Setter Property="Foreground" Value="#FF6A6A6A" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <ControlTemplate TargetType="{x:Type Button}" x:Key="BtnTemp">
+        <Border x:Name="buttonBorder" CornerRadius="0"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Background="{TemplateBinding Background}"
+                Height="{TemplateBinding Height}"
+                Width="{TemplateBinding Width}" >
+            <ContentControl Margin="{TemplateBinding Padding}"
+                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                    Content="{TemplateBinding Content}" />
+        </Border>
+    </ControlTemplate>
+
+    <!--Button`s style-->
+    <Style x:Key="BtnAddPage" TargetType="{x:Type Button}">
+        <Setter Property="Foreground" Value="#FF33382B"/>
+        <Setter Property="Background" Value="#FFC3B100"/>
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Width" Value="120"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="Margin" Value="10"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#FF33382B"/>
+                <Setter Property="Foreground" Value="#FFECD600" />
+                <Setter Property="FontWeight" Value="Bold" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="Gainsboro"/>
+                <Setter Property="Foreground" Value="#FF6A6A6A" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

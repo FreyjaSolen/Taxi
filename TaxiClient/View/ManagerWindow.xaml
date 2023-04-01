@@ -1,0 +1,65 @@
+﻿<Window x:Class="TaxiClient.View.ManagerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaxiClient.View"
+        mc:Ignorable="d"
+        Title="ManagerWindow" Height="450" Width="600" Icon="/TaxiClient;component/Image/icon.png" Loaded="Window_Loaded" Style="{StaticResource WindowLogIn}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.08*"/>
+            <RowDefinition Height="0.18*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.18*"/>
+            <RowDefinition Height="0.07*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.07*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.07*"/>
+        </Grid.ColumnDefinitions>
+
+        <DockPanel Grid.Row="0" Grid.ColumnSpan="3">
+            <Menu MinWidth="130" MaxHeight="25"  VerticalAlignment="Top" Style="{StaticResource MenuStyleMain}">
+                <MenuItem Header="Menu">
+                    <MenuItem Header="Change user" Command="{Binding ChangeUserCommand}" Style="{StaticResource MenuItemStyleMain}"/>
+                    <MenuItem Header="Exit" Command="{Binding ExitCommand}" Style="{StaticResource MenuItemStyleMain}"/>
+                </MenuItem>
+                <MenuItem Header="Help">
+                    <MenuItem Header="About program" Command="{Binding HelpCommand}" Style="{StaticResource MenuItemStyleMain}"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+        <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Text="Cars and drivers:" FontSize="18" Style="{StaticResource TxtBlGen}"/>
+
+        <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Path=Cars, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedCarItem}">
+            <ListView.View>
+                <GridView AllowsColumnReorder="False">
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=ID}" Header="ID" Width="50"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=AutoModel}" Header="Model of car" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Driver}" Header="Driver" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=IsEnabled}" Header="Is enabled" Width="100"/>
+                </GridView>
+
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" Grid.ColumnSpan="3">
+            <Button Content="Сhange availability"
+                            Command="{Binding EnabledCommand}"                                                                                 
+                            Style="{StaticResource BtnMgPage}"
+                            Template="{StaticResource BtnGenTemp}"/>
+            <Button Content="Update"
+                            Command="{Binding UpdateCommand}"
+                            Width="80"
+                            Style="{StaticResource BtnMgPage}"
+                            Template="{StaticResource BtnGenTemp}"/>
+            <Button Content="Add new car and driver" 
+                            Command="{Binding AddCarCommand}"
+                            Style="{StaticResource BtnMgPage}"
+                            Template="{StaticResource BtnGenTemp}"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,15 @@
+﻿<Application x:Class="TaxiClient.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:TaxiClient"
+             StartupUri="View/MainWindow.xaml">
+    <Application.Resources>
+         <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Thema/MainPage.xaml" x:Name="MainPage" />
+                <ResourceDictionary Source="Thema/UserPage.xaml" x:Name="UserPage" />
+                <ResourceDictionary Source="Thema/ManagerPage.xaml" x:Name="ManagerPage"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
